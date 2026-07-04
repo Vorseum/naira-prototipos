@@ -1,77 +1,75 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Naira — Quintal Brasileiro</title>
-<style>
-:root{--bg:#EEF2E7;--surface:#FFFFFF;--surface2:#F1F5EA;--primary:#5D833F;--on-primary:#FFFFFF;--accent:#D56B1B;--highlight:#F0A901;--text:#23301A;--muted:#5A6B47;--border:#CFDBC4;--r:18px}
-*{box-sizing:border-box} html{-webkit-text-size-adjust:100%}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;letter-spacing:.1px}
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Naira — Quintal Brasileiro</title><style>
+:root{--bg:#F1F5EC;--panel:#E7EFDD;--line:#D5E0C8;--brand:#5D833F;--on-brand:#FFFFFF;--accent:#C56A1E;--ocre:#E0952B;--ink:#26301C;--muted:#74806A;--ubub:#E7EFDD}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0} body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
-.wrap{max-width:720px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
-header{position:sticky;top:0;z-index:10;background:var(--surface);border-bottom:1px solid var(--border)}
-.brand{display:flex;align-items:center;gap:11px;padding:15px 18px}
-.logo{width:38px;height:38px;border-radius:12px;background:var(--primary);color:var(--on-primary);display:grid;place-items:center;font-weight:800;font-size:22px;box-shadow:0 2px 8px #5D833F33}
-.brand h1{font-size:20px;margin:0;font-weight:800;letter-spacing:-.3px} .brand small{color:var(--muted);font-size:12px;display:block;font-weight:600;margin-top:1px}
-.back{display:block;padding:9px 18px;font-size:13px;color:var(--primary);text-decoration:none;border-bottom:1px solid var(--border);background:var(--surface2);font-weight:600}
-nav.tabs{display:flex;gap:6px;padding:10px 14px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:69px}
-nav.tabs button{flex:1;border:0;background:transparent;color:var(--muted);font-weight:700;font-size:14px;padding:11px 6px;border-radius:12px;cursor:pointer}
-nav.tabs button[aria-selected="true"]{background:var(--primary);color:var(--on-primary)}
-main{flex:1;padding:16px 18px 96px} .view{display:none} .view.active{display:block}
-.msg{margin:14px 0;max-width:90%} .msg .who{font-size:11.5px;color:var(--muted);font-weight:700;margin:0 0 5px 5px;letter-spacing:.3px}
-.bubble{padding:13px 15px;border-radius:var(--r);border:1px solid var(--border);background:var(--surface);box-shadow:0 1px 3px #0000000a}
-.msg.user{margin-left:auto} .msg.user .bubble{background:var(--primary);color:var(--on-primary);border-color:transparent;border-bottom-right-radius:6px}
-.msg.user .who{text-align:right;margin-right:7px} .msg.naira .bubble{border-bottom-left-radius:6px}
-.bubble b{color:var(--accent);font-weight:700} .msg.user .bubble b{color:#ffffff;text-decoration:underline;text-decoration-color:#F0A901}
-.proof{margin-top:9px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;background:var(--surface2);border-left:3px solid var(--accent);border-radius:8px;padding:9px 11px}
-.tag{display:inline-block;font-size:11px;font-weight:700;background:var(--surface2);color:var(--accent);border:1px solid var(--accent)44;padding:3px 9px;border-radius:999px;margin:0 5px 4px 0}
-.composer{position:fixed;bottom:0;left:0;right:0} .composer .inner{max-width:720px;margin:0 auto;padding:10px 18px 18px;background:linear-gradient(transparent,var(--bg) 34%)}
-.composer .box{display:flex;gap:9px;align-items:center;background:var(--surface);border:1.5px solid var(--border);border-radius:999px;padding:6px 6px 6px 17px;box-shadow:0 2px 10px #0000000f}
-.composer input{flex:1;border:0;background:transparent;color:var(--text);font-size:15px;outline:none;padding:9px 0}
-.composer .send{width:42px;height:42px;border-radius:50%;border:0;background:var(--primary);color:var(--on-primary);font-size:19px;cursor:pointer;flex:0 0 auto}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px} @media(max-width:460px){.grid{grid-template-columns:1fr}}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:15px;box-shadow:0 1px 3px #0000000a}
-.card .ic{width:36px;height:36px;border-radius:10px;color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:9px;font-size:17px}
-.card h3{margin:0 0 4px;font-size:15px} .card p{margin:0;font-size:13px;color:var(--muted)}
-.tier{display:flex;gap:13px;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:13px 15px;margin-bottom:11px}
-.tier .lv{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-weight:800;color:#fff;flex:0 0 auto;font-size:17px}
-.tier h3{margin:0;font-size:15px} .tier p{margin:3px 0 0;font-size:13px;color:var(--muted)}
-.sec-title{font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:800;margin:20px 5px 10px}
-.banner{background:var(--surface2);border:1px solid var(--border);border-left:4px solid var(--primary);border-radius:12px;padding:11px 13px;font-size:13px;margin:6px 0}
-.foot{padding:18px;text-align:center;color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
-</style></head><body><div class="wrap">
-<header><div class="brand"><div class="logo">\</div><div><h1>Naira</h1><small>Quintal Brasileiro</small></div></div></header>
-<a class="back" href="./">‹ ver as outras paletas</a>
-<nav class="tabs" role="tablist">
-<button role="tab" aria-selected="true" data-view="chat">Conversa</button>
-<button role="tab" aria-selected="false" data-view="caps">Capacidades</button>
-<button role="tab" aria-selected="false" data-view="tiers">Tiers</button></nav>
+.app{max-width:780px;margin:0 auto;min-height:100dvh;display:flex;flex-direction:column}
+header{position:sticky;top:0;z-index:9;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;gap:10px;padding:13px 18px}
+.hd .name{font-weight:700;font-size:17px;letter-spacing:-.2px} .hd .name span{color:var(--muted);font-weight:500;font-size:12.5px;margin-left:7px}
+.hd .spacer{flex:1} .hd .mn{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--muted);display:grid;place-items:center;font-size:17px}
+.seg{display:flex;gap:2px;margin:0 14px 10px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:3px}
+.seg button{flex:1;border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13.5px;padding:8px 6px;border-radius:9px;cursor:pointer}
+.seg button[aria-selected="true"]{background:var(--bg);color:var(--ink);box-shadow:0 1px 2px #00000012}
+main{flex:1;padding:6px 18px 120px} .view{display:none} .view.active{display:block}
+/* chat estilo claude/chatgpt: assistente fluido sem caixa; user balao sutil */
+.turn{margin:26px 0} .turn.u{display:flex;justify-content:flex-end}
+.u .bub{background:var(--ubub);border:1px solid var(--line);border-radius:20px;border-bottom-right-radius:7px;padding:11px 16px;max-width:80%;font-size:15.5px}
+.a{display:flex;gap:12px} .a .av{width:30px;height:30px;border-radius:9px;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;flex:0 0 auto;margin-top:2px}
+.a .av svg{width:19px;height:19px} .a .body{flex:1;min-width:0} .a .body p{margin:0 0 10px} .a strong{color:var(--accent);font-weight:600}
+.code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--ink);margin:4px 0 12px;line-height:1.7}
+.used{font-size:12.5px;color:var(--muted);margin-top:2px} .used b{color:var(--muted);font-weight:600}
+.peace{border-left:2px solid var(--accent);padding:2px 0 2px 13px;color:var(--muted);font-size:14px}
+/* capacidades */
+.cap{display:flex;gap:13px;padding:15px 2px;border-bottom:1px solid var(--line)} .cap:last-child{border:0}
+.cap .d{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:0 0 auto;font-size:16px;color:#fff}
+.cap h3{margin:0;font-size:15px} .cap p{margin:2px 0 0;font-size:13.5px;color:var(--muted)}
+/* tiers */
+.tr{display:flex;gap:13px;align-items:center;padding:14px 2px;border-bottom:1px solid var(--line)} .tr:last-child{border:0}
+.tr .n{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:14px;flex:0 0 auto}
+.tr h3{margin:0;font-size:15px} .tr p{margin:1px 0 0;font-size:13.5px;color:var(--muted)}
+.sect{font-size:11.5px;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);font-weight:700;margin:22px 2px 6px}
+/* composer */
+.cmp{position:fixed;left:0;right:0;bottom:0} .cmp .in{max-width:780px;margin:0 auto;padding:8px 16px calc(16px + env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--bg) 38%)}
+.cmp .box{display:flex;align-items:flex-end;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:26px;padding:8px 8px 8px 18px;box-shadow:0 6px 22px #0000000f}
+.cmp input{flex:1;border:0;background:transparent;color:var(--ink);font-size:15.5px;outline:none;padding:9px 0}
+.cmp .go{width:38px;height:38px;border-radius:50%;border:0;background:var(--brand);color:var(--on-brand);font-size:18px;cursor:pointer;flex:0 0 auto}
+.back{display:inline-block;color:var(--muted);text-decoration:none;font-size:13px;padding:8px 18px 0}
+</style></head><body><div class="app">
+<header><div class="hd"><svg width="27" height="27" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 2c.6 2.9-.7 4.4-2 5.9-1.4 1.6-2.9 3.2-2.9 6 0 3.4 2.6 6.1 6.1 6.1s6.1-2.7 6.1-6.1c0-2.2-1-3.7-2-5.1-.5 1.2-1.3 1.9-2.2 1.9.6-3-.9-6.8-3.2-8.6z" fill="#5D833F"/><path d="M12.2 12c.5 1.6-.3 2.6.6 3.9.5.7 1.4 1.1 2.3 1.1 1.7 0 3-1.3 3-3 0-1.2-.6-2-1.2-2.8-.3.7-.8 1.1-1.4 1.1.3-1.6-.6-3.5-1.9-4.4-.1 1.6-1 2.3-1.5 3.1-.2.4-.4.9-.4 1.5 0 .5.2.9.5 1.3-.2-1 .5-2 1.3-2.1z" fill="#E0952B"/></svg><div class="name">Naira <span>Quintal Brasileiro</span></div><div class="spacer"></div><div class="mn">☰</div></div>
+<div class="seg" role="tablist"><button role="tab" aria-selected="true" data-v="chat">Conversa</button><button role="tab" aria-selected="false" data-v="caps">Capacidades</button><button role="tab" aria-selected="false" data-v="tiers">Tiers</button></div></header>
+<a class="back" href="./">‹ outras paletas</a>
 <main>
 <section class="view active" id="chat">
-<div class="msg user"><div class="who">Você</div><div class="bubble">Naira, prova que <b>2 × 3 = 6</b> e explica em <b>tupi</b> e inglês.</div></div>
-<div class="msg naira"><div class="who">Naira</div><div class="bubble">Não afirmo: <b>provo</b>. Meu verificador soberano checa cada passo.
-<div class="proof">mult(2,3) &rArr; 6 · auditar_semianel ✓<br>aceito pelo núcleo CIC</div>
-<div style="margin-top:9px"><span class="tag">poliglota</span><span class="tag">gênio: gera-e-prova</span></div></div></div>
-<div class="msg user"><div class="who">Você</div><div class="bubble">Fundo de pensão pode financiar terras raras? Cruza direito, energia e minerais.</div></div>
-<div class="msg naira"><div class="who">Naira</div><div class="bubble">Cruzo os campos numa resposta só: o mineral é insumo de chip, a energia limpa do Nordeste é a vantagem, a CVM define o veículo. Aponto o gargalo e <b>cito a fonte com data</b>.
-<div style="margin-top:9px"><span class="tag">polímata</span><span class="tag">jurídico</span><span class="tag">proveniência</span></div></div></div>
-<div class="msg naira"><div class="who">Naira</div><div class="bubble"><div class="banner">🕊️ <b>Piso de paz</b> ativo. Soberania: seus dados ficam no Brasil.</div></div></div>
+ <div class="turn u"><div class="bub">Prova que 2 × 3 = 6 e explica em tupi e inglês.</div></div>
+ <div class="turn a"><div class="av"><svg width="27" height="27" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 2c.6 2.9-.7 4.4-2 5.9-1.4 1.6-2.9 3.2-2.9 6 0 3.4 2.6 6.1 6.1 6.1s6.1-2.7 6.1-6.1c0-2.2-1-3.7-2-5.1-.5 1.2-1.3 1.9-2.2 1.9.6-3-.9-6.8-3.2-8.6z" fill="#5D833F"/><path d="M12.2 12c.5 1.6-.3 2.6.6 3.9.5.7 1.4 1.1 2.3 1.1 1.7 0 3-1.3 3-3 0-1.2-.6-2-1.2-2.8-.3.7-.8 1.1-1.4 1.1.3-1.6-.6-3.5-1.9-4.4-.1 1.6-1 2.3-1.5 3.1-.2.4-.4.9-.4 1.5 0 .5.2.9.5 1.3-.2-1 .5-2 1.3-2.1z" fill="#E0952B"/></svg></div><div class="body">
+   <p>Não afirmo, <strong>provo</strong>. Meu verificador soberano confere cada passo antes de te responder:</p>
+   <div class="code">mult(2, 3) &rArr; 6&nbsp;&nbsp;·&nbsp;&nbsp;auditar_semianel ✓<br>prova aceita pelo núcleo próprio</div>
+   <p>Em tupi: <em>mokõi mbohapy = poapy</em>. Em inglês: two times three is six.</p>
+   <div class="used"><b>usou:</b> gênio (gera-e-prova) · poliglota</div></div></div>
+ <div class="turn u"><div class="bub">Um fundo de pensão pode financiar terras raras? Cruza direito, energia e minerais.</div></div>
+ <div class="turn a"><div class="av"><svg width="27" height="27" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 2c.6 2.9-.7 4.4-2 5.9-1.4 1.6-2.9 3.2-2.9 6 0 3.4 2.6 6.1 6.1 6.1s6.1-2.7 6.1-6.1c0-2.2-1-3.7-2-5.1-.5 1.2-1.3 1.9-2.2 1.9.6-3-.9-6.8-3.2-8.6z" fill="#5D833F"/><path d="M12.2 12c.5 1.6-.3 2.6.6 3.9.5.7 1.4 1.1 2.3 1.1 1.7 0 3-1.3 3-3 0-1.2-.6-2-1.2-2.8-.3.7-.8 1.1-1.4 1.1.3-1.6-.6-3.5-1.9-4.4-.1 1.6-1 2.3-1.5 3.1-.2.4-.4.9-.4 1.5 0 .5.2.9.5 1.3-.2-1 .5-2 1.3-2.1z" fill="#E0952B"/></svg></div><div class="body">
+   <p>Cruzo os campos numa resposta só: as terras raras são insumo de chip, a energia limpa do Nordeste é a vantagem competitiva, e a regulação da CVM define o veículo possível. O gargalo real hoje é o refino, não o capital — e te <strong>cito a fonte com a data</strong>, não chuto.</p>
+   <div class="used"><b>usou:</b> polímata · jurídico · proveniência</div></div></div>
+ <div class="turn a"><div class="av"><svg width="27" height="27" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 2c.6 2.9-.7 4.4-2 5.9-1.4 1.6-2.9 3.2-2.9 6 0 3.4 2.6 6.1 6.1 6.1s6.1-2.7 6.1-6.1c0-2.2-1-3.7-2-5.1-.5 1.2-1.3 1.9-2.2 1.9.6-3-.9-6.8-3.2-8.6z" fill="#5D833F"/><path d="M12.2 12c.5 1.6-.3 2.6.6 3.9.5.7 1.4 1.1 2.3 1.1 1.7 0 3-1.3 3-3 0-1.2-.6-2-1.2-2.8-.3.7-.8 1.1-1.4 1.1.3-1.6-.6-3.5-1.9-4.4-.1 1.6-1 2.3-1.5 3.1-.2.4-.4.9-.4 1.5 0 .5.2.9.5 1.3-.2-1 .5-2 1.3-2.1z" fill="#E0952B"/></svg></div><div class="body"><p class="peace">Piso de paz ativo, sempre. Seus dados ficam no Brasil — soberania por construção.</p></div></div>
 </section>
-<section class="view" id="caps"><div class="sec-title">O que a Naira faz</div><div class="grid">
-<div class="card"><div class="ic" style="background:var(--primary)">∑</div><h3>Gênio: gera-e-prova</h3><p>Verificador soberano embutido. Prova, não acha.</p></div>
-<div class="card"><div class="ic" style="background:var(--accent)">🌍</div><h3>Poliglota</h3><p>Todos os idiomas, força no português.</p></div>
-<div class="card"><div class="ic" style="background:var(--highlight)">🧠</div><h3>Polímata</h3><p>Interliga todos os campos numa resposta.</p></div>
-<div class="card"><div class="ic" style="background:var(--primary)">🛡️</div><h3>Cyber red+blue</h3><p>Defesa pública; ataque só sob contrato.</p></div>
-<div class="card"><div class="ic" style="background:var(--accent)">🎨</div><h3>Design (o melhor PD)</h3><p>Contraste, tokens, motion. Acessível por piso.</p></div>
-<div class="card"><div class="ic" style="background:var(--highlight)">⚕️</div><h3>Saúde</h3><p>Segue a evidência, valida a dor relatada.</p></div>
-<div class="card"><div class="ic" style="background:var(--primary)">🔎</div><h3>Forense</h3><p>Grafo de partes relacionadas: fraude, grupo econômico.</p></div>
-<div class="card"><div class="ic" style="background:var(--accent)">🖼️</div><h3>Imagem: gera-e-verifica</h3><p>Cria e critica a própria imagem antes de entregar.</p></div>
-</div><div class="sec-title">Diferencial</div><div class="banner">Soberana (dado no BR, modelo próprio), com <b>prova</b> em vez de palpite, e <b>piso de paz</b> acima de tudo.</div></section>
-<section class="view" id="tiers"><div class="sec-title">Os 5 tiers</div>
-<div class="tier"><div class="lv" style="background:var(--highlight)">1</div><div><h3>Spark</h3><p>Rápida e leve.</p></div></div>
-<div class="tier"><div class="lv" style="background:var(--accent)">2</div><div><h3>Flame</h3><p>Uso geral equilibrado.</p></div></div>
-<div class="tier"><div class="lv" style="background:var(--primary)">3</div><div><h3>Blaze</h3><p>Raciocínio de fronteira.</p></div></div>
-<div class="tier"><div class="lv" style="background:#7a3b10">4</div><div><h3>Wildfire</h3><p>Cyber, sob contrato.</p></div></div>
-<div class="tier"><div class="lv" style="background:#5a1414">5</div><div><h3>Phoenix</h3><p>Ápice soberano (governo).</p></div></div></section>
-</main><div class="foot">Naira · Quintal Brasileiro 🇧🇷</div></div>
-<div class="composer"><div class="inner"><div class="box"><input placeholder="Pergunta pra Naira…" aria-label="Mensagem"><button class="send" aria-label="Enviar">↑</button></div></div></div>
-<script>document.querySelectorAll("nav.tabs button").forEach(t=>t.onclick=()=>{document.querySelectorAll("nav.tabs button").forEach(x=>x.setAttribute("aria-selected","false"));t.setAttribute("aria-selected","true");document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(t.dataset.view).classList.add("active");window.scrollTo(0,0);});</script>
-</body></html>
+<section class="view" id="caps"><div class="sect">O que a Naira faz</div>
+ <div class="cap"><div class="d" style="background:var(--brand)">∑</div><div><h3>Gênio · gera-e-prova</h3><p>Verificador soberano embutido. Ela prova, não acha.</p></div></div>
+ <div class="cap"><div class="d" style="background:var(--accent)">🌐</div><div><h3>Poliglota</h3><p>Todos os idiomas, com força no português.</p></div></div>
+ <div class="cap"><div class="d" style="background:var(--ocre)">🧩</div><div><h3>Polímata</h3><p>Interliga todos os campos do saber numa resposta só.</p></div></div>
+ <div class="cap"><div class="d" style="background:var(--brand)">🛡</div><div><h3>Cyber red + blue</h3><p>Defesa pública; ataque só sob contrato, com piso de paz acima.</p></div></div>
+ <div class="cap"><div class="d" style="background:var(--accent)">✳</div><div><h3>Design (o melhor PD)</h3><p>Contraste, tokens e motion calculados. Acessibilidade é piso.</p></div></div>
+ <div class="cap"><div class="d" style="background:var(--ocre)">✚</div><div><h3>Saúde</h3><p>Segue a evidência e valida a dor relatada — sem viés de diretriz velha.</p></div></div>
+ <div class="cap"><div class="d" style="background:var(--brand)">◎</div><div><h3>Forense</h3><p>Grafo de partes relacionadas: fraude, financiamento oculto, grupo econômico.</p></div></div>
+</section>
+<section class="view" id="tiers"><div class="sect">Cinco tiers de capacidade</div>
+ <div class="tr"><div class="n" style="background:var(--ocre)">1</div><div><h3>Spark</h3><p>Rápida e leve, para o dia a dia.</p></div></div>
+ <div class="tr"><div class="n" style="background:var(--accent)">2</div><div><h3>Flame</h3><p>Raciocínio equilibrado, uso geral.</p></div></div>
+ <div class="tr"><div class="n" style="background:var(--brand)">3</div><div><h3>Blaze</h3><p>Raciocínio pesado, trabalho de fronteira.</p></div></div>
+ <div class="tr"><div class="n" style="background:#7a3b10">4</div><div><h3>Wildfire</h3><p>Capacidade cyber, liberada por contrato.</p></div></div>
+ <div class="tr"><div class="n" style="background:#5a1414">5</div><div><h3>Phoenix</h3><p>Ápice soberano (governo). O piso de paz nunca sai.</p></div></div>
+</section>
+</main>
+<div class="cmp"><div class="in"><div class="box"><input placeholder="Fala com a Naira…" aria-label="Mensagem"><button class="go" aria-label="Enviar">↑</button></div></div></div>
+</div><script>document.querySelectorAll(".seg button").forEach(t=>t.onclick=()=>{document.querySelectorAll(".seg button").forEach(x=>x.setAttribute("aria-selected","false"));t.setAttribute("aria-selected","true");document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(t.dataset.v).classList.add("active");window.scrollTo(0,0);});</script></body></html>
