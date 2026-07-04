@@ -2,43 +2,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Naira — Litoral de Janeiro</title>
 <style>
-:root{--bg:#FBF3D9;--surface:#FFFFFF;--surface2:#FCF6E2;--primary:#2F4F1E;--on-primary:#FFFFFF;--accent:#E08A00;--highlight:#F2B705;--text:#2A2410;--muted:#6E7A3A;--border:#EDE0B8;--radius:16px}
+:root{--bg:#FBF4DC;--surface:#FFFFFF;--surface2:#FCF6E2;--primary:#2F4F1E;--on-primary:#FFFFFF;--accent:#E08A00;--highlight:#7CA33B;--text:#2A2410;--muted:#6E7A3A;--border:#EDE0B8;--r:18px}
 *{box-sizing:border-box} html{-webkit-text-size-adjust:100%}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;letter-spacing:.1px}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
-.wrap{max-width:760px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+.wrap{max-width:720px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
 header{position:sticky;top:0;z-index:10;background:var(--surface);border-bottom:1px solid var(--border)}
-.brand{display:flex;align-items:center;gap:10px;padding:14px 16px}
-.logo{width:34px;height:34px;border-radius:10px;background:var(--primary);color:var(--on-primary);display:grid;place-items:center;font-weight:800;font-size:20px}
-.brand h1{font-size:19px;margin:0;font-weight:800} .brand small{color:var(--muted);font-size:12px;display:block;font-weight:600}
-.back{display:block;padding:8px 16px;font-size:13px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border);background:var(--surface2)}
-nav.tabs{display:flex;gap:4px;padding:8px 12px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:63px}
-nav.tabs button{flex:1;border:0;background:transparent;color:var(--muted);font-weight:700;font-size:14px;padding:10px 6px;border-radius:10px;cursor:pointer}
-nav.tabs button[aria-selected="true"]{background:var(--bg);color:var(--primary)}
-main{flex:1;padding:14px 16px 90px} .view{display:none} .view.active{display:block}
-.msg{margin:12px 0;max-width:92%} .msg .who{font-size:12px;color:var(--muted);font-weight:700;margin:0 0 4px 4px}
-.bubble{padding:12px 14px;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface)}
-.msg.user{margin-left:auto} .msg.user .bubble{background:var(--primary);color:var(--on-primary);border-color:transparent;border-bottom-right-radius:5px}
-.msg.user .who{text-align:right;margin-right:6px} .msg.naira .bubble{border-bottom-left-radius:5px}
-.bubble b{color:var(--accent)} .msg.user .bubble b{color:var(--highlight)}
-.proof{margin-top:8px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;background:var(--surface2);border:1px dashed var(--primary);border-radius:10px;padding:8px 10px}
-.tag{display:inline-block;font-size:11px;font-weight:700;background:var(--highlight);color:#1c1c1c;padding:2px 8px;border-radius:999px;margin:0 4px 4px 0}
-.composer{position:fixed;bottom:0;left:0;right:0} .composer .inner{max-width:760px;margin:0 auto;padding:10px 16px 16px;background:linear-gradient(transparent,var(--bg) 30%)}
-.composer .box{display:flex;gap:8px;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:6px 6px 6px 16px}
-.composer input{flex:1;border:0;background:transparent;color:var(--text);font-size:15px;outline:none;padding:8px 0}
-.composer .send{width:40px;height:40px;border-radius:50%;border:0;background:var(--primary);color:var(--on-primary);font-size:18px;cursor:pointer}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px} @media(max-width:460px){.grid{grid-template-columns:1fr}}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px}
-.card .ic{width:34px;height:34px;border-radius:9px;background:var(--primary);color:var(--on-primary);display:grid;place-items:center;font-weight:800;margin-bottom:8px}
-.card.alt .ic{background:var(--accent)} .card h3{margin:0 0 4px;font-size:15px} .card p{margin:0;font-size:13px;color:var(--muted)}
-.tier{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:12px 14px;margin-bottom:10px}
-.tier .lv{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#fff;flex:0 0 auto}
+.brand{display:flex;align-items:center;gap:11px;padding:15px 18px}
+.logo{width:38px;height:38px;border-radius:12px;background:var(--primary);color:var(--on-primary);display:grid;place-items:center;font-weight:800;font-size:22px;box-shadow:0 2px 8px #2F4F1E33}
+.brand h1{font-size:20px;margin:0;font-weight:800;letter-spacing:-.3px} .brand small{color:var(--muted);font-size:12px;display:block;font-weight:600;margin-top:1px}
+.back{display:block;padding:9px 18px;font-size:13px;color:var(--primary);text-decoration:none;border-bottom:1px solid var(--border);background:var(--surface2);font-weight:600}
+nav.tabs{display:flex;gap:6px;padding:10px 14px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:69px}
+nav.tabs button{flex:1;border:0;background:transparent;color:var(--muted);font-weight:700;font-size:14px;padding:11px 6px;border-radius:12px;cursor:pointer}
+nav.tabs button[aria-selected="true"]{background:var(--primary);color:var(--on-primary)}
+main{flex:1;padding:16px 18px 96px} .view{display:none} .view.active{display:block}
+.msg{margin:14px 0;max-width:90%} .msg .who{font-size:11.5px;color:var(--muted);font-weight:700;margin:0 0 5px 5px;letter-spacing:.3px}
+.bubble{padding:13px 15px;border-radius:var(--r);border:1px solid var(--border);background:var(--surface);box-shadow:0 1px 3px #0000000a}
+.msg.user{margin-left:auto} .msg.user .bubble{background:var(--primary);color:var(--on-primary);border-color:transparent;border-bottom-right-radius:6px}
+.msg.user .who{text-align:right;margin-right:7px} .msg.naira .bubble{border-bottom-left-radius:6px}
+.bubble b{color:var(--accent);font-weight:700} .msg.user .bubble b{color:#ffffff;text-decoration:underline;text-decoration-color:#7CA33B}
+.proof{margin-top:9px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;background:var(--surface2);border-left:3px solid var(--accent);border-radius:8px;padding:9px 11px}
+.tag{display:inline-block;font-size:11px;font-weight:700;background:var(--surface2);color:var(--accent);border:1px solid var(--accent)44;padding:3px 9px;border-radius:999px;margin:0 5px 4px 0}
+.composer{position:fixed;bottom:0;left:0;right:0} .composer .inner{max-width:720px;margin:0 auto;padding:10px 18px 18px;background:linear-gradient(transparent,var(--bg) 34%)}
+.composer .box{display:flex;gap:9px;align-items:center;background:var(--surface);border:1.5px solid var(--border);border-radius:999px;padding:6px 6px 6px 17px;box-shadow:0 2px 10px #0000000f}
+.composer input{flex:1;border:0;background:transparent;color:var(--text);font-size:15px;outline:none;padding:9px 0}
+.composer .send{width:42px;height:42px;border-radius:50%;border:0;background:var(--primary);color:var(--on-primary);font-size:19px;cursor:pointer;flex:0 0 auto}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px} @media(max-width:460px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:15px;box-shadow:0 1px 3px #0000000a}
+.card .ic{width:36px;height:36px;border-radius:10px;color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:9px;font-size:17px}
+.card h3{margin:0 0 4px;font-size:15px} .card p{margin:0;font-size:13px;color:var(--muted)}
+.tier{display:flex;gap:13px;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:13px 15px;margin-bottom:11px}
+.tier .lv{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-weight:800;color:#fff;flex:0 0 auto;font-size:17px}
 .tier h3{margin:0;font-size:15px} .tier p{margin:3px 0 0;font-size:13px;color:var(--muted)}
-.sec-title{font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:800;margin:18px 4px 8px}
-.banner{background:var(--surface2);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:12px;padding:10px 12px;font-size:13px;margin:6px 0}
-.foot{padding:16px;text-align:center;color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
+.sec-title{font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:800;margin:20px 5px 10px}
+.banner{background:var(--surface2);border:1px solid var(--border);border-left:4px solid var(--primary);border-radius:12px;padding:11px 13px;font-size:13px;margin:6px 0}
+.foot{padding:18px;text-align:center;color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
 </style></head><body><div class="wrap">
-<header><div class="brand"><div class="logo">\</div><div><h1>Naira</h1><small>Paleta: Litoral de Janeiro</small></div></div></header>
+<header><div class="brand"><div class="logo">\</div><div><h1>Naira</h1><small>Litoral de Janeiro</small></div></div></header>
 <a class="back" href="./">‹ ver as outras paletas</a>
 <nav class="tabs" role="tablist">
 <button role="tab" aria-selected="true" data-view="chat">Conversa</button>
@@ -47,31 +47,31 @@ main{flex:1;padding:14px 16px 90px} .view{display:none} .view.active{display:blo
 <main>
 <section class="view active" id="chat">
 <div class="msg user"><div class="who">Você</div><div class="bubble">Naira, prova que <b>2 × 3 = 6</b> e explica em <b>tupi</b> e inglês.</div></div>
-<div class="msg naira"><div class="who">Naira</div><div class="bubble">Não afirmo: <b>provo</b>. Verificador soberano próprio checa cada passo.
-<div class="proof">mult(2,3) ⇝ 6 · auditar_semianel ✓<br>aceito pelo núcleo CIC (16 tijolos)</div>
-<div style="margin-top:8px"><span class="tag">poliglota</span><span class="tag">gênio: gera-e-prova</span></div></div></div>
+<div class="msg naira"><div class="who">Naira</div><div class="bubble">Não afirmo: <b>provo</b>. Meu verificador soberano checa cada passo.
+<div class="proof">mult(2,3) &rArr; 6 · auditar_semianel ✓<br>aceito pelo núcleo CIC</div>
+<div style="margin-top:9px"><span class="tag">poliglota</span><span class="tag">gênio: gera-e-prova</span></div></div></div>
 <div class="msg user"><div class="who">Você</div><div class="bubble">Fundo de pensão pode financiar terras raras? Cruza direito, energia e minerais.</div></div>
 <div class="msg naira"><div class="who">Naira</div><div class="bubble">Cruzo os campos numa resposta só: o mineral é insumo de chip, a energia limpa do Nordeste é a vantagem, a CVM define o veículo. Aponto o gargalo e <b>cito a fonte com data</b>.
-<div style="margin-top:8px"><span class="tag">polímata</span><span class="tag">jurídico</span><span class="tag">proveniência</span></div></div></div>
+<div style="margin-top:9px"><span class="tag">polímata</span><span class="tag">jurídico</span><span class="tag">proveniência</span></div></div></div>
 <div class="msg naira"><div class="who">Naira</div><div class="bubble"><div class="banner">🕊️ <b>Piso de paz</b> ativo. Soberania: seus dados ficam no Brasil.</div></div></div>
 </section>
 <section class="view" id="caps"><div class="sec-title">O que a Naira faz</div><div class="grid">
-<div class="card"><div class="ic">∑</div><h3>Gênio: gera-e-prova</h3><p>Verificador soberano embutido. Prova, não acha.</p></div>
-<div class="card"><div class="ic">🌍</div><h3>Poliglota</h3><p>Todos os idiomas, força no português.</p></div>
-<div class="card"><div class="ic">🧠</div><h3>Polímata</h3><p>Interliga todos os campos numa resposta.</p></div>
-<div class="card alt"><div class="ic">🛡️</div><h3>Cyber red+blue</h3><p>Defesa pública; ataque só sob contrato.</p></div>
-<div class="card"><div class="ic">🎨</div><h3>Design (o melhor PD)</h3><p>Contraste, OKLCH, tokens, motion. Acessível por piso.</p></div>
-<div class="card"><div class="ic">⚕️</div><h3>Saúde</h3><p>Segue a evidência, valida a dor relatada.</p></div>
-<div class="card"><div class="ic">🔎</div><h3>Forense</h3><p>Grafo de partes relacionadas: fraude, grupo econômico.</p></div>
-<div class="card alt"><div class="ic">🖼️</div><h3>Imagem: gera-e-verifica</h3><p>Cria e critica a própria imagem antes de entregar.</p></div>
+<div class="card"><div class="ic" style="background:var(--primary)">∑</div><h3>Gênio: gera-e-prova</h3><p>Verificador soberano embutido. Prova, não acha.</p></div>
+<div class="card"><div class="ic" style="background:var(--accent)">🌍</div><h3>Poliglota</h3><p>Todos os idiomas, força no português.</p></div>
+<div class="card"><div class="ic" style="background:var(--highlight)">🧠</div><h3>Polímata</h3><p>Interliga todos os campos numa resposta.</p></div>
+<div class="card"><div class="ic" style="background:var(--primary)">🛡️</div><h3>Cyber red+blue</h3><p>Defesa pública; ataque só sob contrato.</p></div>
+<div class="card"><div class="ic" style="background:var(--accent)">🎨</div><h3>Design (o melhor PD)</h3><p>Contraste, tokens, motion. Acessível por piso.</p></div>
+<div class="card"><div class="ic" style="background:var(--highlight)">⚕️</div><h3>Saúde</h3><p>Segue a evidência, valida a dor relatada.</p></div>
+<div class="card"><div class="ic" style="background:var(--primary)">🔎</div><h3>Forense</h3><p>Grafo de partes relacionadas: fraude, grupo econômico.</p></div>
+<div class="card"><div class="ic" style="background:var(--accent)">🖼️</div><h3>Imagem: gera-e-verifica</h3><p>Cria e critica a própria imagem antes de entregar.</p></div>
 </div><div class="sec-title">Diferencial</div><div class="banner">Soberana (dado no BR, modelo próprio), com <b>prova</b> em vez de palpite, e <b>piso de paz</b> acima de tudo.</div></section>
 <section class="view" id="tiers"><div class="sec-title">Os 5 tiers</div>
 <div class="tier"><div class="lv" style="background:var(--highlight)">1</div><div><h3>Spark</h3><p>Rápida e leve.</p></div></div>
-<div class="tier"><div class="lv" style="background:var(--primary)">2</div><div><h3>Flame</h3><p>Uso geral equilibrado.</p></div></div>
-<div class="tier"><div class="lv" style="background:var(--accent)">3</div><div><h3>Blaze</h3><p>Raciocínio de fronteira.</p></div></div>
+<div class="tier"><div class="lv" style="background:var(--accent)">2</div><div><h3>Flame</h3><p>Uso geral equilibrado.</p></div></div>
+<div class="tier"><div class="lv" style="background:var(--primary)">3</div><div><h3>Blaze</h3><p>Raciocínio de fronteira.</p></div></div>
 <div class="tier"><div class="lv" style="background:#7a3b10">4</div><div><h3>Wildfire</h3><p>Cyber, sob contrato.</p></div></div>
 <div class="tier"><div class="lv" style="background:#5a1414">5</div><div><h3>Phoenix</h3><p>Ápice soberano (governo).</p></div></div></section>
-</main><div class="foot">Naira · paleta Litoral de Janeiro 🇧🇷</div></div>
+</main><div class="foot">Naira · Litoral de Janeiro 🇧🇷</div></div>
 <div class="composer"><div class="inner"><div class="box"><input placeholder="Pergunta pra Naira…" aria-label="Mensagem"><button class="send" aria-label="Enviar">↑</button></div></div></div>
 <script>document.querySelectorAll("nav.tabs button").forEach(t=>t.onclick=()=>{document.querySelectorAll("nav.tabs button").forEach(x=>x.setAttribute("aria-selected","false"));t.setAttribute("aria-selected","true");document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(t.dataset.view).classList.add("active");window.scrollTo(0,0);});</script>
 </body></html>
