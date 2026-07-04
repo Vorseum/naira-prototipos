@@ -1,0 +1,80 @@
+LOGO='<svg width="27" height="27" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 2c.6 2.9-.7 4.4-2 5.9-1.4 1.6-2.9 3.2-2.9 6 0 3.4 2.6 6.1 6.1 6.1s6.1-2.7 6.1-6.1c0-2.2-1-3.7-2-5.1-.5 1.2-1.3 1.9-2.2 1.9.6-3-.9-6.8-3.2-8.6z" fill="{PRIMARY}"/><path d="M12.2 12c.5 1.6-.3 2.6.6 3.9.5.7 1.4 1.1 2.3 1.1 1.7 0 3-1.3 3-3 0-1.2-.6-2-1.2-2.8-.3.7-.8 1.1-1.4 1.1.3-1.6-.6-3.5-1.9-4.4-.1 1.6-1 2.3-1.5 3.1-.2.4-.4.9-.4 1.5 0 .5.2.9.5 1.3-.2-1 .5-2 1.3-2.1z" fill="{HI}"/></svg>'
+TPL='''<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Naira — {PALNAME}</title><style>
+:root{{--bg:{BG};--panel:{PANEL};--line:{LINE};--brand:{PRIMARY};--on-brand:{ON};--accent:{ACCENT};--ocre:{HI};--ink:{INK};--muted:{MUTED};--ubub:{UBUB}}}
+*{{box-sizing:border-box;-webkit-tap-highlight-color:transparent}}
+html,body{{margin:0}} body{{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}}
+@media (prefers-reduced-motion: reduce){{*{{transition:none!important;animation:none!important}}}}
+.app{{max-width:780px;margin:0 auto;min-height:100dvh;display:flex;flex-direction:column}}
+header{{position:sticky;top:0;z-index:9;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}}
+.hd{{display:flex;align-items:center;gap:10px;padding:13px 18px}}
+.hd .name{{font-weight:700;font-size:17px;letter-spacing:-.2px}} .hd .name span{{color:var(--muted);font-weight:500;font-size:12.5px;margin-left:7px}}
+.hd .spacer{{flex:1}} .hd .mn{{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--muted);display:grid;place-items:center;font-size:17px}}
+.seg{{display:flex;gap:2px;margin:0 14px 10px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:3px}}
+.seg button{{flex:1;border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13.5px;padding:8px 6px;border-radius:9px;cursor:pointer}}
+.seg button[aria-selected="true"]{{background:var(--bg);color:var(--ink);box-shadow:0 1px 2px #00000012}}
+main{{flex:1;padding:6px 18px 120px}} .view{{display:none}} .view.active{{display:block}}
+/* chat estilo claude/chatgpt: assistente fluido sem caixa; user balao sutil */
+.turn{{margin:26px 0}} .turn.u{{display:flex;justify-content:flex-end}}
+.u .bub{{background:var(--ubub);border:1px solid var(--line);border-radius:20px;border-bottom-right-radius:7px;padding:11px 16px;max-width:80%;font-size:15.5px}}
+.a{{display:flex;gap:12px}} .a .av{{width:30px;height:30px;border-radius:9px;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;flex:0 0 auto;margin-top:2px}}
+.a .av svg{{width:19px;height:19px}} .a .body{{flex:1;min-width:0}} .a .body p{{margin:0 0 10px}} .a strong{{color:var(--accent);font-weight:600}}
+.code{{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--ink);margin:4px 0 12px;line-height:1.7}}
+.used{{font-size:12.5px;color:var(--muted);margin-top:2px}} .used b{{color:var(--muted);font-weight:600}}
+.peace{{border-left:2px solid var(--accent);padding:2px 0 2px 13px;color:var(--muted);font-size:14px}}
+/* capacidades */
+.cap{{display:flex;gap:13px;padding:15px 2px;border-bottom:1px solid var(--line)}} .cap:last-child{{border:0}}
+.cap .d{{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:0 0 auto;font-size:16px;color:#fff}}
+.cap h3{{margin:0;font-size:15px}} .cap p{{margin:2px 0 0;font-size:13.5px;color:var(--muted)}}
+/* tiers */
+.tr{{display:flex;gap:13px;align-items:center;padding:14px 2px;border-bottom:1px solid var(--line)}} .tr:last-child{{border:0}}
+.tr .n{{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:14px;flex:0 0 auto}}
+.tr h3{{margin:0;font-size:15px}} .tr p{{margin:1px 0 0;font-size:13.5px;color:var(--muted)}}
+.sect{{font-size:11.5px;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);font-weight:700;margin:22px 2px 6px}}
+/* composer */
+.cmp{{position:fixed;left:0;right:0;bottom:0}} .cmp .in{{max-width:780px;margin:0 auto;padding:8px 16px calc(16px + env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--bg) 38%)}}
+.cmp .box{{display:flex;align-items:flex-end;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:26px;padding:8px 8px 8px 18px;box-shadow:0 6px 22px #0000000f}}
+.cmp input{{flex:1;border:0;background:transparent;color:var(--ink);font-size:15.5px;outline:none;padding:9px 0}}
+.cmp .go{{width:38px;height:38px;border-radius:50%;border:0;background:var(--brand);color:var(--on-brand);font-size:18px;cursor:pointer;flex:0 0 auto}}
+.back{{display:inline-block;color:var(--muted);text-decoration:none;font-size:13px;padding:8px 18px 0}}
+</style></head><body><div class="app">
+<header><div class="hd">{LOGO}<div class="name">Naira <span>{PALNAME}</span></div><div class="spacer"></div><div class="mn">☰</div></div>
+<div class="seg" role="tablist"><button role="tab" aria-selected="true" data-v="chat">Conversa</button><button role="tab" aria-selected="false" data-v="caps">Capacidades</button><button role="tab" aria-selected="false" data-v="tiers">Tiers</button></div></header>
+<a class="back" href="./">‹ outras paletas</a>
+<main>
+<section class="view active" id="chat">
+ <div class="turn u"><div class="bub">Prova que 2 × 3 = 6 e explica em tupi e inglês.</div></div>
+ <div class="turn a"><div class="av">{LOGO}</div><div class="body">
+   <p>Não afirmo, <strong>provo</strong>. Meu verificador soberano confere cada passo antes de te responder:</p>
+   <div class="code">mult(2, 3) &rArr; 6&nbsp;&nbsp;·&nbsp;&nbsp;auditar_semianel ✓<br>prova aceita pelo núcleo próprio</div>
+   <p>Em tupi: <em>mokõi mbohapy = poapy</em>. Em inglês: two times three is six.</p>
+   <div class="used"><b>usou:</b> gênio (gera-e-prova) · poliglota</div></div></div>
+ <div class="turn u"><div class="bub">Um fundo de pensão pode financiar terras raras? Cruza direito, energia e minerais.</div></div>
+ <div class="turn a"><div class="av">{LOGO}</div><div class="body">
+   <p>Cruzo os campos numa resposta só: as terras raras são insumo de chip, a energia limpa do Nordeste é a vantagem competitiva, e a regulação da CVM define o veículo possível. O gargalo real hoje é o refino, não o capital — e te <strong>cito a fonte com a data</strong>, não chuto.</p>
+   <div class="used"><b>usou:</b> polímata · jurídico · proveniência</div></div></div>
+ <div class="turn a"><div class="av">{LOGO}</div><div class="body"><p class="peace">Piso de paz ativo, sempre. Seus dados ficam no Brasil — soberania por construção.</p></div></div>
+</section>
+<section class="view" id="caps"><div class="sect">O que a Naira faz</div>
+ <div class="cap"><div class="d" style="background:var(--brand)">∑</div><div><h3>Gênio · gera-e-prova</h3><p>Verificador soberano embutido. Ela prova, não acha.</p></div></div>
+ <div class="cap"><div class="d" style="background:var(--accent)">🌐</div><div><h3>Poliglota</h3><p>Todos os idiomas, com força no português.</p></div></div>
+ <div class="cap"><div class="d" style="background:var(--ocre)">🧩</div><div><h3>Polímata</h3><p>Interliga todos os campos do saber numa resposta só.</p></div></div>
+ <div class="cap"><div class="d" style="background:var(--brand)">🛡</div><div><h3>Cyber red + blue</h3><p>Defesa pública; ataque só sob contrato, com piso de paz acima.</p></div></div>
+ <div class="cap"><div class="d" style="background:var(--accent)">✳</div><div><h3>Design (o melhor PD)</h3><p>Contraste, tokens e motion calculados. Acessibilidade é piso.</p></div></div>
+ <div class="cap"><div class="d" style="background:var(--ocre)">✚</div><div><h3>Saúde</h3><p>Segue a evidência e valida a dor relatada — sem viés de diretriz velha.</p></div></div>
+ <div class="cap"><div class="d" style="background:var(--brand)">◎</div><div><h3>Forense</h3><p>Grafo de partes relacionadas: fraude, financiamento oculto, grupo econômico.</p></div></div>
+</section>
+<section class="view" id="tiers"><div class="sect">Cinco tiers de capacidade</div>
+ <div class="tr"><div class="n" style="background:var(--ocre)">1</div><div><h3>Spark</h3><p>Rápida e leve, para o dia a dia.</p></div></div>
+ <div class="tr"><div class="n" style="background:var(--accent)">2</div><div><h3>Flame</h3><p>Raciocínio equilibrado, uso geral.</p></div></div>
+ <div class="tr"><div class="n" style="background:var(--brand)">3</div><div><h3>Blaze</h3><p>Raciocínio pesado, trabalho de fronteira.</p></div></div>
+ <div class="tr"><div class="n" style="background:#7a3b10">4</div><div><h3>Wildfire</h3><p>Capacidade cyber, liberada por contrato.</p></div></div>
+ <div class="tr"><div class="n" style="background:#5a1414">5</div><div><h3>Phoenix</h3><p>Ápice soberano (governo). O piso de paz nunca sai.</p></div></div>
+</section>
+</main>
+<div class="cmp"><div class="in"><div class="box"><input placeholder="Fala com a Naira…" aria-label="Mensagem"><button class="go" aria-label="Enviar">↑</button></div></div></div>
+</div><script>document.querySelectorAll(".seg button").forEach(t=>t.onclick=()=>{{document.querySelectorAll(".seg button").forEach(x=>x.setAttribute("aria-selected","false"));t.setAttribute("aria-selected","true");document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(t.dataset.v).classList.add("active");window.scrollTo(0,0);}});</script></body></html>'''
+def build(p):
+    return TPL.format(LOGO=LOGO.format(PRIMARY=p["PRIMARY"],HI=p["HI"]),**p)
+NOSSA=dict(PALNAME="pau-brasil",BG="#FAF7F1",PANEL="#F3ECE0",LINE="#E9DFCF",PRIMARY="#A41615",ON="#FFFFFF",ACCENT="#0E9E7E",HI="#CC7722",INK="#2A231F",MUTED="#8C8073",UBUB="#F1E9DB")
+open("nossa.html","w").write(build(NOSSA)); print("nossa.html gerado (design refinado)")
